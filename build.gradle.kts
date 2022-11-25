@@ -5,7 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.0"
 	kotlin("jvm") version "1.7.21"
 	kotlin("plugin.spring") version "1.7.21"
-	id("org.jetbrains.kotlin.plugin.jpa") version "1.6.20-M1"
+//	id("org.jetbrains.kotlin.plugin.jpa") version "1.6.20-M1"
 }
 
 group = "com.dig"
@@ -18,9 +18,9 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.postgresql:postgresql")
-	implementation("org.flywaydb:flyway-core")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//	implementation("org.postgresql:postgresql")
+//	implementation("org.flywaydb:flyway-core")
+//	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
