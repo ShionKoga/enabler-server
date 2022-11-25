@@ -17,3 +17,5 @@ spring:
 logging:
   level:
     root: info
+server:
+  port: ${PORT}
