@@ -27,16 +27,16 @@ class ContentController(val contentService: ContentService) {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    fun saveNewContent(@RequestBody content: Content): Content {
+    fun saveNewContent(@RequestBody content: Content): List<ContentOverview> {
         contentService.save(content)
-        return content
+        return contentService.getAll()
     }
 
     @PutMapping("/{contentId}")
     @ResponseStatus(value = HttpStatus.OK)
-    fun updateContent(@PathVariable contentId: Int, @RequestBody content: Content): Content {
+    fun updateContent(@PathVariable contentId: Int, @RequestBody content: Content): List<ContentOverview> {
         contentService.updateContent(contentId, content)
-        return content
+        return contentService.getAll()
     }
 
     @DeleteMapping("/{contentId}")
