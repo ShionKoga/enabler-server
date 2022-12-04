@@ -1,6 +1,7 @@
 package com.dig.enabler
 
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -36,5 +37,12 @@ class ContentController(val contentService: ContentService) {
     fun updateContent(@PathVariable contentId: Int, @RequestBody content: Content): Content {
         contentService.updateContent(contentId, content)
         return content
+    }
+
+    @DeleteMapping("/{contentId}")
+    @ResponseStatus(value = HttpStatus.OK)
+    fun deleteContent(@PathVariable contentId: Int): List<ContentOverview> {
+        contentService.delete(contentId)
+        return contentService.getAll()
     }
 }

@@ -8,6 +8,7 @@ interface ContentService {
     fun getContentBy(contentId: Int): Optional<Content>
     fun save(content: Content)
     fun updateContent(contentId: Int, content: Content)
+    fun delete(contentId: Int)
 }
 
 @Service
@@ -39,4 +40,7 @@ class DefaultContentService(val contentRepository: ContentRepository): ContentSe
         contentRepository.save(newContent)
     }
 
+    override fun delete(contentId: Int) {
+        contentRepository.deleteById(contentId)
+    }
 }
