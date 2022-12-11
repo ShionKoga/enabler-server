@@ -13,9 +13,27 @@ spring:
       hibernate:
         format_sql: true
 
+  security:
+    oauth2:
+      client:
+        registration:
+          qiita:
+            clientId: 'client id'
+            clientSecret: 'client secret'
+            scope: read_qiita
+            authorization-grant-type: authorization_code
+            client-authentication-method: basic
+            redirectUri: http://localhost:8080/login/oauth2/code/qiita
+        provider:
+          qiita:
+            token-uri: https://qiita.com/api/v2/access_tokens
+            authorization-uri: https://qiita.com/api/v2/oauth/authorize
+            user-info-uri: https://qiita.com/api/v2/authenticated_user
+            userNameAttribute: name
+
 logging:
   level:
-    root: info
+    root: debug
 
 server:
   port: ${PORT}
